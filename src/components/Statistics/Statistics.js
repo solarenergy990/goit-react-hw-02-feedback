@@ -1,4 +1,6 @@
 import React from "react";
+import Section from "../Section/Section";
+import Notification from "../Notification/Notification";
 
 const Statistics = ({
   onGood,
@@ -7,18 +9,30 @@ const Statistics = ({
   onTotalFeedback,
   onPositivePercentage,
 }) => {
+  console.log(
+    "values:",
+    onGood,
+    onNeutral,
+    onBad,
+    onTotalFeedback,
+    onPositivePercentage
+  );
   return (
-    <div className="statistics">
-      <h3 className="title">Statistics</h3>
-      <ul className="list">
-        <li>Good: {onGood}</li>
-        <li>Neutral: {onNeutral}</li>
-        <li>Bad: {onBad}</li>
-        <li>Total: {onTotalFeedback}</li>
-        <li>Positive feedback: {onPositivePercentage}</li>
-      </ul>
-    </div>
+    <Section title="Statistics">
+      {onPositivePercentage ? (
+        <ul className="list">
+          <li>Good: {onGood}</li>
+          <li>Neutral: {onNeutral}</li>
+          <li>Bad: {onBad}</li>
+          <li>Total: {onTotalFeedback}</li>
+          <li>Positive feedback: {onPositivePercentage}</li>
+        </ul>
+      ) : (
+        <Notification message="No feedback given" />
+      )}
+    </Section>
   );
 };
 
 export default Statistics;
+/* <Notification message="No feedback given" />; */
