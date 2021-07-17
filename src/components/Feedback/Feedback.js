@@ -34,7 +34,11 @@ class Feedback extends Component {
       });
     }
   };
-  // countTotalFeedback()
+  countTotalFeedback = () => {
+    let totalFeedback = this.state.good + this.state.neutral + this.state.bad;
+    console.log(totalFeedback);
+    return totalFeedback;
+  };
 
   render() {
     return (
@@ -57,6 +61,7 @@ class Feedback extends Component {
             <li>Good: {this.state.good}</li>
             <li>Neutral: {this.state.neutral}</li>
             <li>Bad: {this.state.bad}</li>
+            <li>Total: {this.countTotalFeedback}2</li>
           </ul>
         </div>
       </div>
