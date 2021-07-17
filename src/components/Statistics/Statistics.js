@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Section from "../Section/Section";
 import Notification from "../Notification/Notification";
 
@@ -27,3 +28,11 @@ const Statistics = ({
 };
 
 export default Statistics;
+
+Statistics.propTypes = {
+  onGood: PropTypes.number.isRequired,
+  onNeutral: PropTypes.number.isRequired,
+  onBad: PropTypes.number.isRequired,
+  onTotalFeedback: PropTypes.number.isRequired,
+  onPositivePercentage: PropTypes.string,
+};

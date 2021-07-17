@@ -5,6 +5,7 @@ class App extends Component {
   static defaultProps = {
     initialValue: 0,
   };
+  static propTypes = {};
 
   state = {
     good: this.props.initialValue,
@@ -49,14 +50,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Feedback
-          props={this.state}
-          onLeaveFeedback={this.onLeaveFeedback}
-          onTotalFeedback={this.countTotalFeedback()}
-          onPositiveFeedback={this.countPositiveFeedbackPercentage()}
-        />
-      </div>
+      <Feedback
+        props={this.state}
+        onLeaveFeedback={this.onLeaveFeedback}
+        onTotalFeedback={this.countTotalFeedback()}
+        onPositiveFeedback={this.countPositiveFeedbackPercentage()}
+      />
     );
   }
 }
