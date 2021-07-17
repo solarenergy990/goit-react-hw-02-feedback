@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Statistics from "../Statistics/Statistics";
+import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
 // import Section from "../Section/Section";
 
 class Feedback extends Component {
@@ -12,8 +14,7 @@ class Feedback extends Component {
     bad: this.props.initialValue,
   };
 
-  handleIncrement = (evt) => {
-    console.log(evt.target.textContent);
+  onLeaveFeedback = (evt) => {
     if (evt.target.textContent === "Good") {
       this.setState((prevState) => {
         return {
@@ -34,36 +35,33 @@ class Feedback extends Component {
       });
     }
   };
+
   countTotalFeedback = () => {
     let totalFeedback = this.state.good + this.state.neutral + this.state.bad;
-    console.log(totalFeedback);
+
     return totalFeedback;
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    let total = this.countTotalFeedback();
+    let positive = (this.state.good * 100) / total;
+    if (!isNaN(positive)) {
+      return `${Math.floor(positive)}%`;
+    }
   };
 
   render() {
     return (
       <div>
-        <div className="feedback">
-          <h2>Please leave feedback</h2>
-          <button type="button" onClick={this.handleIncrement}>
-            Good
-          </button>
-          <button type="button" onClick={this.handleIncrement}>
-            Neutral
-          </button>
-          <button type="button" onClick={this.handleIncrement}>
-            Bad
-          </button>
-        </div>
-        <div className="statistics">
-          <h3>Statistics</h3>
-          <ul>
-            <li>Good: {this.state.good}</li>
-            <li>Neutral: {this.state.neutral}</li>
-            <li>Bad: {this.state.bad}</li>
-            <li>Total: {this.countTotalFeedback}2</li>
-          </ul>
-        </div>
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
+
+        <Statistics
+          onGood={this.state.good}
+          onNeutral={this.state.neutral}
+          onBad={this.state.bad}
+          onTotalFeedback={this.countTotalFeedback()}
+          onPositivePercentage={this.countPositiveFeedbackPercentage()}
+        />
       </div>
     );
   }

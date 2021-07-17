@@ -1,9 +1,12 @@
 import React from "react";
 
-const Section = () => {
+const Section = (props) => {
+  console.log(props);
+  const { title } = props;
   return (
     <section className="section">
-      <div className="container"></div>
+      <h2>{title}</h2>
+      <div className="container">{props.children}</div>
     </section>
   );
 };
