@@ -34,14 +34,14 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    let totalFeedback = this.state.good + this.state.neutral + this.state.bad;
+    const totalFeedback = this.state.good + this.state.neutral + this.state.bad;
 
     return totalFeedback;
   };
 
   countPositiveFeedbackPercentage = () => {
-    let total = this.countTotalFeedback();
-    let positive = (this.state.good * 100) / total;
+    const total = this.countTotalFeedback();
+    const positive = (this.state.good * 100) / total;
     if (!isNaN(positive)) {
       return `${Math.floor(positive)}%`;
     }
