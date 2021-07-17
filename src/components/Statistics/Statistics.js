@@ -9,14 +9,6 @@ const Statistics = ({
   onTotalFeedback,
   onPositivePercentage,
 }) => {
-  console.log(
-    "values:",
-    onGood,
-    onNeutral,
-    onBad,
-    onTotalFeedback,
-    onPositivePercentage
-  );
   return (
     <Section title="Statistics">
       {onPositivePercentage ? (
@@ -35,4 +27,3 @@ const Statistics = ({
 };
 
 export default Statistics;
-/* <Notification message="No feedback given" />; */
