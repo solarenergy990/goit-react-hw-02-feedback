@@ -28,6 +28,8 @@ class App extends Component {
     const positive = (this.state.good * 100) / total;
     if (!isNaN(positive)) {
       return `${Math.floor(positive)}%`;
+    } else {
+      return "";
     }
   };
 
@@ -48,7 +50,7 @@ class App extends Component {
             onNeutral={neutral}
             onBad={bad}
             onTotalFeedback={this.countTotalFeedback()}
-            onPositivePercentage={this.countPositiveFeedbackPercentage}
+            onPositivePercentage={this.countPositiveFeedbackPercentage()}
           />
         </Section>
       </Container>

@@ -18,7 +18,7 @@ const Statistics = ({
           <li>Neutral: {onNeutral}</li>
           <li>Bad: {onBad}</li>
           <li>Total: {onTotalFeedback}</li>
-          <li>Positive feedback: {onPositivePercentage()}</li>
+          <li>Positive feedback: {onPositivePercentage}</li>
         </ul>
       ) : (
         <Notification message="No feedback given" />
@@ -34,5 +34,5 @@ Statistics.propTypes = {
   onNeutral: PropTypes.number.isRequired,
   onBad: PropTypes.number.isRequired,
   onTotalFeedback: PropTypes.number.isRequired,
-  onPositivePercentage: PropTypes.func.isRequired,
+  onPositivePercentage: PropTypes.string.isRequired,
 };
