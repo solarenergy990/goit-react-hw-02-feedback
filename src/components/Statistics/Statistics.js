@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Section from "../Section/Section";
+
 import Notification from "../Notification/Notification";
 
 const Statistics = ({
@@ -11,19 +11,19 @@ const Statistics = ({
   onPositivePercentage,
 }) => {
   return (
-    <Section title="Statistics">
-      {onPositivePercentage ? (
+    <>
+      {onTotalFeedback !== 0 ? (
         <ul className="list">
           <li>Good: {onGood}</li>
           <li>Neutral: {onNeutral}</li>
           <li>Bad: {onBad}</li>
           <li>Total: {onTotalFeedback}</li>
-          <li>Positive feedback: {onPositivePercentage}</li>
+          <li>Positive feedback: {onPositivePercentage()}</li>
         </ul>
       ) : (
         <Notification message="No feedback given" />
       )}
-    </Section>
+    </>
   );
 };
 
@@ -34,5 +34,5 @@ Statistics.propTypes = {
   onNeutral: PropTypes.number.isRequired,
   onBad: PropTypes.number.isRequired,
   onTotalFeedback: PropTypes.number.isRequired,
-  onPositivePercentage: PropTypes.string,
+  onPositivePercentage: PropTypes.func.isRequired,
 };
