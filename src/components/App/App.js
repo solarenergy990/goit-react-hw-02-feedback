@@ -52,13 +52,6 @@ class App extends Component {
           />
         </Section>
       </Container>
-
-      // <Feedback
-      //   props={this.state}
-      //   onLeaveFeedback={this.onLeaveFeedback}
-      //   onTotalFeedback={this.countTotalFeedback()}
-      //   onPositiveFeedback={this.countPositiveFeedbackPercentage()}
-      // />
     );
   }
 }
